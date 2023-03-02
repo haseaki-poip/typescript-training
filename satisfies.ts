@@ -44,3 +44,33 @@ colorList_sf.green[0] = 255; // <-これができる
 //     blue: string
 // }
 // として結果を保持する
+
+type Person = {
+  name: string;
+  age: number;
+};
+
+const myPerson = {
+  name: "Jone",
+  age: 21,
+} as const satisfies Person;
+// as constとsatisfiesを組み合わせることで
+// 型チェックをさせつつさらにリテラル型を保持できる
+// {
+//   name: "Jone";
+//   age: 21;
+// }
+// という型
+
+// 型注釈とas constの組み合わせわダメなのか？
+// ダメなんです
+const yourPerson: Person = {
+  name: "Jone",
+  age: 21,
+} as const;
+// 型チェックはしてくれるが保持される推論の結果はPerson型つまり
+// {
+//   name: string;
+//   age: number
+// }
+// という型
