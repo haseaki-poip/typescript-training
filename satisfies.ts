@@ -55,7 +55,7 @@ const myPerson = {
   age: 21,
 } as const satisfies Person;
 // as constとsatisfiesを組み合わせることで
-// 型チェックをさせつつさらにリテラル型を保持できる
+// 型チェックをさせつつさらにリテラル型を保持できる(wideningの防止)
 // {
 //   name: "Jone";
 //   age: 21;
